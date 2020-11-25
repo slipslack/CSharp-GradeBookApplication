@@ -42,11 +42,11 @@ namespace GradeBook.UserInterfaces
             var name = parts[1];
             if (parts[2] == "Standard")
             {
-                StandardGradeBook gradeBook = new StandardGradeBook(name);
+                StandardGradeBook gradeBook = new StandardGradeBook(parts[2]);
             }
             else if (parts[2] == "Ranked")
             {
-                RankedGradeBook gradeBook = new RankedGradeBook(name);
+                RankedGradeBook gradeBook = new RankedGradeBook(parts[2]);
             }
             else Console.WriteLine(" is not a supported type of gradebook, please try again");
             return;
