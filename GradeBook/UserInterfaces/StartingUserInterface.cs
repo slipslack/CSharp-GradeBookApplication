@@ -46,12 +46,16 @@ namespace GradeBook.UserInterfaces
             {
                 gradeBook = new StandardGradeBook(name);
             }
-            else if (type == "ranked")
+            if (type == "ranked")
             {
                 gradeBook = new RankedGradeBook(name);
             }
-            else Console.WriteLine(" is not a supported type of gradebook, please try again", type);
-            
+            else
+            {
+                Console.WriteLine(" is not a supported type of gradebook, please try again", type);
+                return;
+            }
+
             Console.WriteLine("Created gradebook {0}.", name);
             GradeBookUserInterface.CommandLoop(gradeBook);
         }
