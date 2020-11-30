@@ -20,7 +20,7 @@ namespace GradeBook.GradeBooks
         {
             Name = name;
             Students = new List<Student>();
-            IsWeighted = true;
+            this.IsWeighted = IsWeighted;
             
         }
 
@@ -119,15 +119,20 @@ namespace GradeBook.GradeBooks
             switch (letterGrade)
             {
                 case 'A':
-                    return 4 + weighting;
+                    weighting =+ 4;
+                    return weighting;
                 case 'B':
-                    return 3 + weighting;
+                    weighting =+ 3;
+                    return weighting;
                 case 'C':
-                    return 2 + weighting;
+                    weighting =+ 2;
+                    return weighting;
                 case 'D':
-                    return 1 + weighting;
+                    weighting =+ 1;
+                    return weighting;
                 case 'F':
-                    return 0 + weighting;
+                    weighting =+ 0;
+                    return weighting;
             }
 
             return 0;
