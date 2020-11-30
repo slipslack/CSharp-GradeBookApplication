@@ -33,25 +33,29 @@ namespace GradeBook.UserInterfaces
 
         public static void CreateCommand(string command)
         {
-            var parts = command.Split(' ');
+            string name = null;
+
+            BaseGradeBook gradeBook = new BaseGradeBook(name);
+            string[] parts = command.Split(' ');
             if (parts.Length != 3)
             {
                 Console.WriteLine("Command not valid, Create requires a name and type of gradebook.");
                 return;
             }
-            var name = parts[1];
-            if (parts[2] == "Standard")
+            name = parts[1];
+            var typeGrade = parts[2];
+            if (typeGrade == "Standard")
             {
-                StandardGradeBook gradeBook = new StandardGradeBook(parts[2]);
+                gradeBook = new StandardGradeBook(parts[2]);
             }
-            else if (parts[2] == "Ranked")
+            else if (typeGrade == "Ranked")
             {
-                RankedGradeBook gradeBook = new RankedGradeBook(parts[2]);
+                gradeBook = new RankedGradeBook(parts[2]);
             }
             else Console.WriteLine(" is not a supported type of gradebook, please try again");
             return;
 
-            //BaseGradeBook gradeBook = new BaseGradeBook(name);
+         
             //Console.WriteLine("Created gradebook {0}.", name);
             //GradeBookUserInterface.CommandLoop(gradeBook);
         }
